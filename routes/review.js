@@ -4,7 +4,7 @@ const { isLoggedIn } = require("../middleware.js");
 
 
 const wrapAsync = require("../util/wrapAsync.js");
-const ExpressError = require("../util/expressError.js");
+const ExpressError = require("../util/ExpressError.js");
 const { reviewSchema } = require("../schema.js");
 
 const reviewController = require("../controllers/review.js");
