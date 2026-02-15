@@ -9,7 +9,7 @@ const mongoose=require("mongoose");
 
 const path=require("path");
 const methodoverride=require("method-override");
-const ejsMate=require("ejs-Mate")
+const ejsMate=require("ejs-mate")
 
 const ExpressError = require("./util/expressError.js");
 const listingrouter =require("./routes/listing.js");
