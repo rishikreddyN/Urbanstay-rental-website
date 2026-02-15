@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+    .listing-card{
+        transition: 0.3s;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .listing-card:hover{
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .card-img-top{
+        height: 220px;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <div class="d-flex justify-content-between align-items-center flex-wrap mt-3 px-4 border-top pt-3">
+
+  <div class="text-center">
+    <i class="fa-solid fa-fire fa-lg"></i>
+    <div>Trending</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-bed fa-lg"></i>
+    <div>Rooms</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-landmark fa-lg"></i>
+    <div>Iconic Cities</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-mountain fa-lg"></i>
+    <div>Mountains</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-chess-rook fa-lg"></i>
+    <div>Castles</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-water-ladder fa-lg"></i>
+    <div>Amazing Pools</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-campground fa-lg"></i>
+    <div>Camping</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-solid fa-tractor fa-lg"></i>
+    <div>Farms</div>
+  </div>
+
+  <div class="text-center">
+    <i class="fa-regular fa-snowflake fa-lg"></i>
+    <div>Arctic</div>
+  </div>
+
+</div>
+
+    <div class="container mt-4">
+        <h3 class="mb-4 fw-bold">All Listings</h3>
+
+        <div class="row">
+            <% for(let listing of allListings){ %>
+
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                    <!-- whole card clickable -->
+                    <a href="/listings/<%= listing._id %>" 
+                       class="text-decoration-none text-dark">
+
+                        <div class="card listing-card h-100 shadow-sm">
+
+                            <!-- image -->
+                            <img src="<%= listing.image.url || 'https://images.unsplash.com/photo-1602391833977-358a52198938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60' %>" 
+                                 class="card-img-top" 
+                                 alt="listing image">
+
+                            <div class="card-body">
+
+                                <!-- title -->
+                                <h5 class="card-title fw-semibold">
+                                    <%= listing.title %>
+                                </h5>
+
+                                <!-- location (if exists in schema) -->
+                                <% if(listing.location){ %>
+                                    <p class="text-muted mb-1">
+                                        <%= listing.location %>
+                                    </p>
+                                <% } %>
+
+                                <!-- price -->
+                                <p class="card-text fw-bold">
+                                    ₹ <%= listing.price.toLocaleString("en-IN") %> 
+                                    <span class="text-muted fs-6">/ night</span>
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+                </div>
+
+            <% } %>
+        </div>
+    </div>
+  
+</body>
+</html>

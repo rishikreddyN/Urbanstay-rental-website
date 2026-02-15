@@ -1,0 +1,92 @@
+.f-info-links a{
+    text-decoration: none;
+    color:#222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info{
+    display: flex;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+.f-info-links{
+    width: 100%;
+}
+.f-info-socials{
+    width: 100%;
+
+}
+
+
+.navbar-nav{
+    margin-right: 10px;
+}
+.star-rating {
+  direction: rtl;
+  font-size: 2rem;
+  display: inline-flex;
+}
+
+.star-rating input {
+  display: none;   /* hides radio circles */
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0 4px;
+}
+
+.star-rating label:before {
+  content: "★";
+}
+
+.star-rating input:checked ~ label {
+  color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+/* flash popup spacing */
+.alert {
+  margin: 20px auto;
+  width: 60%;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* success color (optional tweak) */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* error color */
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.fa-solid, .fa-regular {
+  color: #555;
+}
+
+.text-center {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.text-center:hover {
+  color: black;
+  transform: scale(1.1);
+  transition: 0.2s;
+}

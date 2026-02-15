@@ -1,0 +1,102 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <style>
+        .form-container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-container h2 {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-dark {
+            width: 100%;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 600;
+        }
+
+        .preview-img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+
+    <body>
+
+        <div class="container mt-5 mb-5">
+
+            <div class="form-container">
+                <h2>Edit Listing</h2>
+
+                <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
+
+                    <!-- Title -->
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" name="listing[title]" class="form-control" value="<%= listing.title %>"
+                            required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="listing[description]" class="form-control"
+                            rows="4"><%= listing.description %></textarea>
+                    </div>
+
+                    <!-- Image preview -->
+                    <% if(listing.image){ %>
+                        <img src="<%= listing.image.url %>" class="preview-img">
+                        <% } %>
+
+                            <!-- Image link -->
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Upload Listing Image</label>
+                                <input name="listing[image]" type="file" class="form-control" />
+                            </div>
+
+                            <!-- Price -->
+                            <div class="mb-3">
+                                <label class="form-label">Price (₹)</label>
+                                <input type="number" name="listing[price]" class="form-control"
+                                    value="<%= listing.price %>">
+                            </div>
+
+                            <!-- Location -->
+                            <div class="mb-3">
+                                <label class="form-label">Location</label>
+                                <input type="text" name="listing[location]" class="form-control"
+                                    value="<%= listing.location %>">
+                            </div>
+
+                            <!-- Country -->
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                <input type="text" name="listing[country]" class="form-control"
+                                    value="<%= listing.country %>">
+                            </div>
+
+                            <!-- Button -->
+                            <button type="submit" class="btn btn-dark">
+                                Update Listing
+                            </button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </body>
+
+    </html>
