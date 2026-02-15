@@ -11,7 +11,7 @@ const path=require("path");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate")
 
-const ExpressError = require("./util/expressError.js");
+const ExpressError = require("./util/ExpressError.js");
 const listingrouter =require("./routes/listing.js");
 const reviewrouter =require("./routes/review.js");
 const userrouter=require("./routes/user.js");
